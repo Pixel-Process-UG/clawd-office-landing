@@ -20,27 +20,29 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-6">
-          <a href="#features" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
-            {t(translations.nav.features)}
-          </a>
-          <a href="#rooms" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
-            {t(translations.nav.rooms)}
-          </a>
-          <a href="#tech" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
-            {t(translations.nav.tech)}
-          </a>
-          <a href="#quickstart" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
-            {t(translations.nav.quickstart)}
-          </a>
-          <a
-            href="https://github.com/fwartner/clawd-office"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-brand-gray hover:text-brand-black transition-colors"
-          >
-            {t(translations.nav.github)}
-          </a>
+        <div className="flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#features" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
+              {t(translations.nav.features)}
+            </a>
+            <a href="#rooms" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
+              {t(translations.nav.rooms)}
+            </a>
+            <a href="#tech" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
+              {t(translations.nav.tech)}
+            </a>
+            <a href="#quickstart" className="text-sm text-brand-gray hover:text-brand-black transition-colors">
+              {t(translations.nav.quickstart)}
+            </a>
+            <a
+              href="https://github.com/fwartner/clawd-office"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-brand-gray hover:text-brand-black transition-colors"
+            >
+              {t(translations.nav.github)}
+            </a>
+          </div>
           <button
             onClick={toggle}
             className="bg-brand-yellow border-2 border-brand-black shadow-neo-sm shadow-neo-sm-hover px-3 py-1 text-sm font-bold transition-all cursor-pointer"
