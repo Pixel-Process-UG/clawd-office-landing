@@ -1,59 +1,59 @@
 "use client";
 
 import { useLang } from "@/context/LangContext";
-import { translations as t } from "@/lib/i18n";
+import { translations } from "@/lib/i18n";
 
 export default function Footer() {
-  const { t: tr } = useLang();
+  const { t } = useLang();
 
   return (
-    <footer className="bg-brand-black text-[#888] py-10 border-t-3 border-brand-black">
-      <div className="max-w-6xl mx-auto px-6 flex flex-wrap justify-between items-center gap-4">
-        <span className="font-heading font-semibold text-sm text-brand-white">
-          {tr(t.footer.copy)}
-        </span>
-        <ul className="flex gap-6 text-sm">
-          <li>
-            <a
-              href="https://pixelandprocess.de"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-teal transition-colors"
-            >
-              pixelandprocess.de
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://github.com/fwartner/clawd-office"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-teal transition-colors"
-            >
-              GitHub
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://pixelandprocess.de/impressum"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-teal transition-colors"
-            >
-              {tr(t.footer.imprint)}
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://pixelandprocess.de/datenschutz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-brand-teal transition-colors"
-            >
-              {tr(t.footer.privacy)}
-            </a>
-          </li>
-        </ul>
+    <footer className="bg-brand-black py-6">
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <img
+            src="https://fsn1.your-objectstorage.com/pp-strapi/pp_icon_color_606e1b4397.svg"
+            alt="Pixel & Process"
+            className="w-4 h-4"
+          />
+          <span className="text-gray-500 text-sm">
+            {t(translations.footer.copy)}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-6 text-sm text-gray-500">
+          <a
+            href="https://pixelandprocess.de"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-teal transition-colors"
+          >
+            pixelandprocess.de
+          </a>
+          <a
+            href="https://github.com/fwartner/clawd-office"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-teal transition-colors"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://pixelandprocess.de/impressum"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-teal transition-colors"
+          >
+            {t(translations.footer.imprint)}
+          </a>
+          <a
+            href="https://pixelandprocess.de/datenschutz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-brand-teal transition-colors"
+          >
+            {t(translations.footer.privacy)}
+          </a>
+        </div>
       </div>
     </footer>
   );
