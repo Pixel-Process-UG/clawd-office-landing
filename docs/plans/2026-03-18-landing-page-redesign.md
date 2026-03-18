@@ -12,7 +12,7 @@
 
 ---
 
-### Task 1: Update next.config.ts — add object storage remote pattern
+### Task 1: Update next.config.ts - add object storage remote pattern
 
 **Files:**
 - Modify: `next.config.ts`
@@ -43,7 +43,7 @@ git commit -m "feat: add object storage remote pattern for P&P logo"
 
 ---
 
-### Task 2: Update globals.css — add presence colors and card-dark token
+### Task 2: Update globals.css - add presence colors and card-dark token
 
 **Files:**
 - Modify: `src/app/globals.css`
@@ -72,7 +72,7 @@ git commit -m "feat: add presence state colors and card-dark token"
 
 ---
 
-### Task 3: Rewrite i18n.ts — all translations for new sections
+### Task 3: Rewrite i18n.ts - all translations for new sections
 
 **Files:**
 - Modify: `src/lib/i18n.ts`
@@ -83,12 +83,12 @@ The new translations must cover these sections: nav (with rooms link), hero (new
 
 Key translation changes:
 - `nav`: add `rooms` key, add `github` key
-- `hero`: new keys — `title` ("A {highlight} for your AI agents"), `highlight` ("pixel-art office"), `sub` (presence/rooms/task routing description), `ctaPrimary` ("Get Started →"), `ctaSecondary` ("GitHub"), `trustStates`/`trustRooms`/`trustQueue`
-- `presence`: new section — `title`, `sub`, plus 6 state objects each with `name` and `desc`
-- `rooms`: new section — `title`, `sub`, plus 5 room objects each with `name`, `team`, `icon`
+- `hero`: new keys - `title` ("A {highlight} for your AI agents"), `highlight` ("pixel-art office"), `sub` (presence/rooms/task routing description), `ctaPrimary` ("Get Started →"), `ctaSecondary` ("GitHub"), `trustStates`/`trustRooms`/`trustQueue`
+- `presence`: new section - `title`, `sub`, plus 6 state objects each with `name` and `desc`
+- `rooms`: new section - `title`, `sub`, plus 5 room objects each with `name`, `team`, `icon`
 - `features.items`: updated to Agent CRUD, Task Queue & Routing, Activity Feed, Workday Awareness, Dual Backend, Accessible
 - `quickstart`: updated title ("Up and Running in 60 Seconds" / "In 60 Sekunden startklar"), note text
-- `cta`: new keys — `label` ("Built by Pixel & Process"), `title` ("Give your agents a place to work"), `sub` ("Open source, MIT licensed..."), `ctaPrimary` ("Clone Repository"), `ctaSecondary` ("Read the Docs")
+- `cta`: new keys - `label` ("Built by Pixel & Process"), `title` ("Give your agents a place to work"), `sub` ("Open source, MIT licensed..."), `ctaPrimary` ("Clone Repository"), `ctaSecondary` ("Read the Docs")
 - `footer`: updated copy
 
 **Step 2: Verify TypeScript compiles**
@@ -105,7 +105,7 @@ git commit -m "feat: rewrite i18n translations for all redesigned sections"
 
 ---
 
-### Task 4: Update layout.tsx — add font weight 800 and favicon
+### Task 4: Update layout.tsx - add font weight 800 and favicon
 
 **Files:**
 - Modify: `src/app/layout.tsx`
@@ -140,7 +140,7 @@ git commit -m "feat: add Montserrat 800 weight and P&P favicon"
 
 **Step 1: Replace component**
 
-- Use `<img>` tag for P&P logo SVG from object storage (not Next Image — it's an external SVG used as a logo, small enough to not need optimization)
+- Use `<img>` tag for P&P logo SVG from object storage (not Next Image - it's an external SVG used as a logo, small enough to not need optimization)
 - Nav links: Features (#features), Rooms (#rooms), Tech (#tech), Quickstart (#quickstart), GitHub (https://github.com/fwartner/clawd-office, external)
 - All nav links hidden on mobile (md:flex)
 - DE/EN toggle button: yellow background, 2px border, neo-brut shadow-sm
@@ -167,7 +167,7 @@ Layout: 2-column grid (md:grid-cols-2), stacks on mobile.
 
 Left column:
 - Teal badge: `inline-block bg-brand-teal text-white text-xs font-semibold px-3 py-1 border-2 border-brand-black uppercase tracking-wider`
-- Headline: `text-4xl md:text-5xl font-extrabold leading-tight` — uses `t()` for text, `<span className="bg-brand-yellow px-1 border-b-[3px] border-brand-black">` for highlight
+- Headline: `text-4xl md:text-5xl font-extrabold leading-tight` - uses `t()` for text, `<span className="bg-brand-yellow px-1 border-b-[3px] border-brand-black">` for highlight
 - Subtitle: `text-brand-gray leading-relaxed`
 - Two CTA buttons: purple "Get Started" (anchor to #quickstart) + white "GitHub" (external link)
 - Trust line: three `✓` items in flex row, text-sm text-brand-gray
@@ -376,7 +376,7 @@ git commit -m "feat: redesign CTA section with P&P branding"
 - Dark background (bg-brand-black)
 - Flex row, space-between:
   - Left: P&P logo SVG (16px) + copyright text from i18n
-  - Right: links — pixelandprocess.de, GitHub, Impressum, Datenschutz
+  - Right: links - pixelandprocess.de, GitHub, Impressum, Datenschutz
 - Links: text-gray-500 hover:text-brand-teal transition
 - Responsive: stacks on mobile
 
@@ -389,7 +389,7 @@ git commit -m "feat: redesign Footer with P&P logo and updated links"
 
 ---
 
-### Task 15: Update page.tsx — add new sections to composition
+### Task 15: Update page.tsx - add new sections to composition
 
 **Files:**
 - Modify: `src/app/page.tsx`

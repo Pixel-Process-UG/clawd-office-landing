@@ -4,14 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Dev Commands
 
-- `npm run dev` — Start dev server with hot reload
-- `npm run build` — Production build (standalone output for Docker)
-- `npm run start` — Run production server
-- `npm run lint` — ESLint with Next.js core-web-vitals + TypeScript rules
+- `npm run dev` - Start dev server with hot reload
+- `npm run build` - Production build (standalone output for Docker)
+- `npm run start` - Run production server
+- `npm run lint` - ESLint with Next.js core-web-vitals + TypeScript rules
 
 ## Architecture
 
-Next.js 16 landing page for "Agent Office" — a pixel-art virtual office for AI agent teams. Static site with no API routes, no database, no server-side data fetching.
+Next.js 16 landing page for "Agent Office" - a pixel-art virtual office for AI agent teams. Static site with no API routes, no database, no server-side data fetching.
 
 **Internationalization:** Client-side DE/EN switching via React Context (`src/context/LangContext.tsx`). All strings live in a single translation object in `src/lib/i18n.ts`. Components call `useLang()` to get `lang`, `toggle()`, and `t()` (translation helper with German fallback).
 
@@ -20,7 +20,7 @@ Next.js 16 landing page for "Agent Office" — a pixel-art virtual office for AI
 **Design system:** Neo-brutalism with pixel-art aesthetic. Custom utilities defined in `src/app/globals.css`:
 - Brand colors: `brand-black`, `brand-white`, `brand-yellow`, `brand-purple`, `brand-teal`, `brand-gray`, `brand-dark`
 - Shadow classes: `.shadow-neo`, `.shadow-neo-sm`, `.shadow-neo-lg`, `.shadow-neo-hover`
-- `.border-neo` — 3px solid black borders
+- `.border-neo` - 3px solid black borders
 - Pixel grid background and checkerboard floor patterns
 - Float/blink animations
 
@@ -37,4 +37,4 @@ Next.js 16 landing page for "Agent Office" — a pixel-art virtual office for AI
 
 ## Remote Images
 
-Images are loaded from `https://raw.githubusercontent.com/fwartner/clawd-office/**` — configured in `next.config.ts` remotePatterns.
+Images are loaded from `https://raw.githubusercontent.com/fwartner/clawd-office/**` - configured in `next.config.ts` remotePatterns.

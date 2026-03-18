@@ -18,7 +18,7 @@ export const translations = {
     titlePost: { de: "für deine AI-Agents.", en: "for your AI agents." },
     sub: {
       de: "Echtzeit-Präsenz, thematische Räume, Task-Routing und ein Retro-Workspace, in dem dein Agent-Team tatsächlich lebt. Sieh auf einen Blick, wer arbeitet, wer blockiert ist und was in der Queue steht.",
-      en: "Live presence states, themed rooms, task routing, and a retro-styled workspace where your agent team actually lives. See who's working, who's blocked, and what's queued — at a glance.",
+      en: "Live presence states, themed rooms, task routing, and a retro-styled workspace where your agent team actually lives. See who's working, who's blocked, and what's queued - at a glance.",
     },
     ctaPrimary: { de: "Loslegen →", en: "Get Started →" },
     ctaSecondary: { de: "⭐ GitHub", en: "⭐ GitHub" },
@@ -33,8 +33,8 @@ export const translations = {
       en: "A shared workspace where AI agents actually live.",
     },
     text: {
-      de: "Agent Office ist ein Pixel-Art-Büro, das deinem AI-Agent-Team ein visuelles Zuhause gibt. Statt abstrakter Dashboards sitzen deine Agents in thematischen Räumen mit Live-Präsenz-Indikatoren. Sieh auf einen Blick, wer aktiv ist, wer blockiert ist und welche Tasks in der Queue stehen — wie ein echtes Büro, aber für AI.",
-      en: "Agent Office is a pixel-art virtual office that gives your AI agent team a visual home. Instead of abstract dashboards, your agents sit in themed rooms with live presence indicators. See at a glance who's active, who's blocked, and what tasks are queued — like a real office, but for AI.",
+      de: "Agent Office ist ein Pixel-Art-Büro, das deinem AI-Agent-Team ein visuelles Zuhause gibt. Statt abstrakter Dashboards sitzen deine Agents in thematischen Räumen mit Live-Präsenz-Indikatoren. Sieh auf einen Blick, wer aktiv ist, wer blockiert ist und welche Tasks in der Queue stehen - wie ein echtes Büro, aber für AI.",
+      en: "Agent Office is a pixel-art virtual office that gives your AI agent team a visual home. Instead of abstract dashboards, your agents sit in themed rooms with live presence indicators. See at a glance who's active, who's blocked, and what tasks are queued - like a real office, but for AI.",
     },
   },
   presence: {
@@ -204,8 +204,8 @@ export const translations = {
       en: "Built by Pixel & Process",
     },
     sub: {
-      de: "Wir sind eine Agentur für AI-gestützte Softwarelösungen aus Lübeck. Von Strategie über Design bis zur technischen Umsetzung — wir bauen digitale Produkte, die funktionieren.",
-      en: "We're an agency for AI-powered software solutions based in Lübeck, Germany. From strategy to design to technical implementation — we build digital products that work.",
+      de: "Wir sind eine Agentur für AI-gestützte Softwarelösungen aus Lübeck. Von Strategie über Design bis zur technischen Umsetzung - wir bauen digitale Produkte, die funktionieren.",
+      en: "We're an agency for AI-powered software solutions based in Lübeck, Germany. From strategy to design to technical implementation - we build digital products that work.",
     },
     services: [
       {
@@ -225,8 +225,8 @@ export const translations = {
       {
         title: { de: "Produkt & Design", en: "Product & Design" },
         desc: {
-          de: "Von der Idee zum MVP — UX, UI und Branding aus einer Hand.",
-          en: "From idea to MVP — UX, UI, and branding under one roof.",
+          de: "Von der Idee zum MVP - UX, UI und Branding aus einer Hand.",
+          en: "From idea to MVP - UX, UI, and branding under one roof.",
         },
       },
     ],

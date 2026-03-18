@@ -5,7 +5,7 @@
 
 ## Summary
 
-Complete rebuild of the clawd-office-landing page. The current site attempts a neo-brutalist pixel-art aesthetic but doesn't land — the redesign executes the same identity at a much higher level while accurately representing the product's real features.
+Complete rebuild of the clawd-office-landing page. The current site attempts a neo-brutalist pixel-art aesthetic but doesn't land - the redesign executes the same identity at a much higher level while accurately representing the product's real features.
 
 ## Audience
 
@@ -17,11 +17,11 @@ Three groups, all served equally:
 ## Goals
 
 - Showcase what Clawd Office is and drive GitHub engagement (star/clone) in equal measure
-- Every section should be immediately scannable — no one reads landing pages linearly
+- Every section should be immediately scannable - no one reads landing pages linearly
 
 ## Design Direction
 
-**"Neo-Brut Pro"** — Neo-brutalist layout (thick borders, offset shadows, bold colors) with professional typography (Montserrat headings, Roboto body). Pixel-art accents (colored squares, grid patterns) without going full retro. The product's own pixel-art visuals do the heavy lifting.
+**"Neo-Brut Pro"** - Neo-brutalist layout (thick borders, offset shadows, bold colors) with professional typography (Montserrat headings, Roboto body). Pixel-art accents (colored squares, grid patterns) without going full retro. The product's own pixel-art visuals do the heavy lifting.
 
 ## Design System
 
@@ -84,14 +84,14 @@ Three groups, all served equally:
   - Trust line: "✓ 6 presence states · ✓ 5 themed rooms · ✓ Task queue"
 - **Right column:**
   - Real app screenshot in macOS-style window frame (3px border, 8px shadow)
-  - Window chrome with red/yellow/green dots and "clawd-office — localhost:4173"
+  - Window chrome with red/yellow/green dots and "clawd-office - localhost:4173"
   - Floating status overlays: "● 3 active" (green border) and "⚙ 2 queued" (yellow border)
 - **Mobile:** stacks vertically, copy first, screenshot below
 
 ### 3. What Is Clawd Office?
 - Teal label badge: "What is this?"
 - Headline: "A shared workspace where AI agents actually live."
-- One paragraph explaining the concept — visual office vs abstract dashboards
+- One paragraph explaining the concept - visual office vs abstract dashboards
 - Right side: real screenshot from GitHub repo in neo-brut frame
 - **Mobile:** stacks vertically
 
@@ -123,12 +123,12 @@ Three groups, all served equally:
   - Short description
   - Neo-brut styling (3px border, 4px shadow)
 - Features:
-  1. Agent CRUD — create, edit, delete agents from UI
-  2. Task Queue & Routing — priority levels, routing targets
-  3. Activity Feed — chronological event log
-  4. Workday Awareness — Berlin-timezone auto off-hours
-  5. Dual Backend — Postgres primary, JSON fallback
-  6. Accessible (WCAG 2.1 AA) — keyboard nav, screen readers
+  1. Agent CRUD - create, edit, delete agents from UI
+  2. Task Queue & Routing - priority levels, routing targets
+  3. Activity Feed - chronological event log
+  4. Workday Awareness - Berlin-timezone auto off-hours
+  5. Dual Backend - Postgres primary, JSON fallback
+  6. Accessible (WCAG 2.1 AA) - keyboard nav, screen readers
 
 ### 7. Tech Stack (dark background)
 - Headline: "Built With"
@@ -171,43 +171,43 @@ Same approach as current site:
 
 - **Framework:** Next.js 16 with App Router, standalone output for Docker
 - **Styling:** Tailwind CSS v4 via `@tailwindcss/postcss`
-- **Fonts:** Google Fonts — Montserrat (400, 500, 600, 700, 800) + Roboto (300, 400, 500, 700)
+- **Fonts:** Google Fonts - Montserrat (400, 500, 600, 700, 800) + Roboto (300, 400, 500, 700)
 - **Images:** Next.js `<Image>` with remote patterns for GitHub raw + object storage
 - **Favicon:** Use the P&P SVG from object storage
 - **Deployment:** Same CI/CD pipeline (Docker → GHCR → ArgoCD via GitOps)
-- **No new dependencies needed** — everything builds on existing Next.js + Tailwind stack
+- **No new dependencies needed** - everything builds on existing Next.js + Tailwind stack
 
 ## File Changes
 
 ### Modified files:
-- `src/app/layout.tsx` — update metadata, set Montserrat weights to ["400", "500", "600", "700", "800"], update favicon
-- `src/app/page.tsx` — updated section composition
-- `src/app/globals.css` — add presence state colors, refine utilities
-- `src/lib/i18n.ts` — complete rewrite of all translations to match new sections
-- `src/components/Navbar.tsx` — use P&P logo SVG, update nav links
-- `src/components/Hero.tsx` — complete rewrite with screenshot frame
-- `src/components/WhatIs.tsx` — update copy and layout
-- `src/components/Features.tsx` — update to 6 accurate product features
-- `src/components/TechStack.tsx` — minor styling updates
-- `src/components/Quickstart.tsx` — update commands and copy
-- `src/components/CtaSection.tsx` — update copy, add P&P logo
-- `src/components/Footer.tsx` — add P&P logo, update links
-- `next.config.ts` — add remote pattern: `{ protocol: "https", hostname: "fsn1.your-objectstorage.com", pathname: "/pp-strapi/**" }`
+- `src/app/layout.tsx` - update metadata, set Montserrat weights to ["400", "500", "600", "700", "800"], update favicon
+- `src/app/page.tsx` - updated section composition
+- `src/app/globals.css` - add presence state colors, refine utilities
+- `src/lib/i18n.ts` - complete rewrite of all translations to match new sections
+- `src/components/Navbar.tsx` - use P&P logo SVG, update nav links
+- `src/components/Hero.tsx` - complete rewrite with screenshot frame
+- `src/components/WhatIs.tsx` - update copy and layout
+- `src/components/Features.tsx` - update to 6 accurate product features
+- `src/components/TechStack.tsx` - minor styling updates
+- `src/components/Quickstart.tsx` - update commands and copy
+- `src/components/CtaSection.tsx` - update copy, add P&P logo
+- `src/components/Footer.tsx` - add P&P logo, update links
+- `next.config.ts` - add remote pattern: `{ protocol: "https", hostname: "fsn1.your-objectstorage.com", pathname: "/pp-strapi/**" }`
 
 ### New files:
-- `src/components/PresenceStates.tsx` — new section showcasing 6 presence states
-- `src/components/Rooms.tsx` — new section showcasing 5 themed rooms
+- `src/components/PresenceStates.tsx` - new section showcasing 6 presence states
+- `src/components/Rooms.tsx` - new section showcasing 5 themed rooms
 
 ### Deleted files:
-- `src/components/Icons.tsx` — GitHubIcon will be inlined as SVG directly in components that need it (Navbar, Footer)
+- `src/components/Icons.tsx` - GitHubIcon will be inlined as SVG directly in components that need it (Navbar, Footer)
 
 ### Unchanged files (no modifications needed):
-- `src/context/LangContext.tsx` — language context used as-is
+- `src/context/LangContext.tsx` - language context used as-is
 
 ## Out of Scope
 
 - No interactive demo or embedded app
-- No animation library (framer-motion, etc.) — CSS transitions only
+- No animation library (framer-motion, etc.) - CSS transitions only
 - No analytics integration (Umami was removed from current site)
 - No blog, docs, or additional pages
 - No dark mode toggle (sections alternate light/dark by design)

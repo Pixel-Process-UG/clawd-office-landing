@@ -69,7 +69,7 @@ export default function Hero() {
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
               <span className="w-2.5 h-2.5 rounded-full bg-green-400" />
               <span className="font-mono text-gray-600 text-xs ml-2">
-                agent-office — localhost:4173
+                agent-office - localhost:4173
               </span>
             </div>
             {/* Screenshot */}
