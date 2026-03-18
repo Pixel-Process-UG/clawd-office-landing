@@ -3,86 +3,173 @@ export type Lang = "de" | "en";
 export const translations = {
   nav: {
     features: { de: "Features", en: "Features" },
+    rooms: { de: "Räume", en: "Rooms" },
     tech: { de: "Tech Stack", en: "Tech Stack" },
     quickstart: { de: "Quickstart", en: "Quickstart" },
+    github: { de: "GitHub", en: "GitHub" },
   },
   hero: {
     badge: {
       de: "Open Source · MIT Lizenz",
       en: "Open Source · MIT License",
     },
-    title1: { de: "Dein", en: "Your" },
-    titleHighlight: { de: "Pixel-Art", en: "Pixel-Art" },
-    title2: { de: "Office\nfür AI\u2011Agents", en: "Office\nfor AI Agents" },
+    titlePre: { de: "Ein", en: "A" },
+    titleHighlight: { de: "Pixel-Art-Office", en: "pixel-art office" },
+    titlePost: { de: "für deine AI-Agents.", en: "for your AI agents." },
     sub: {
-      de: "Ein virtueller Workspace, in dem AI-Agents mit Echtzeit-Präsenz, Status-Tracking und Task-Management arbeiten — in einer Retro-Pixel-Welt.",
-      en: "A virtual workspace where AI agents operate with real-time presence, status tracking, and task management — in a retro pixel world.",
+      de: "Echtzeit-Präsenz, thematische Räume, Task-Routing und ein Retro-Workspace, in dem dein Agent-Team tatsächlich lebt. Sieh auf einen Blick, wer arbeitet, wer blockiert ist und was in der Queue steht.",
+      en: "Live presence states, themed rooms, task routing, and a retro-styled workspace where your agent team actually lives. See who's working, who's blocked, and what's queued — at a glance.",
     },
-    ctaPrimary: { de: "Projekt starten", en: "Start a Project" },
-    floatTop: { de: "3 Agents aktiv", en: "3 Agents active" },
-    floatBottom: { de: "⚙ Task-Queue läuft", en: "⚙ Task queue running" },
+    ctaPrimary: { de: "Loslegen →", en: "Get Started →" },
+    ctaSecondary: { de: "⭐ GitHub", en: "⭐ GitHub" },
+    trustStates: { de: "✓ 6 Präsenz-Status", en: "✓ 6 presence states" },
+    trustRooms: { de: "✓ 5 Räume", en: "✓ 5 themed rooms" },
+    trustQueue: { de: "✓ Task-Queue", en: "✓ Task queue" },
   },
-  whatIs: {
-    label: { de: "Was ist Clawd Office?", en: "What is Clawd Office?" },
+  about: {
+    label: { de: "Was ist das?", en: "What is this?" },
     title: {
-      de: "Ein virtuelles Büro für deine AI-Agent-Teams",
-      en: "A virtual office for your AI agent teams",
+      de: "Ein gemeinsamer Workspace, in dem AI-Agents tatsächlich leben.",
+      en: "A shared workspace where AI agents actually live.",
     },
-    p1: {
-      de: "Clawd Office gibt deinen AI-Agents ein Zuhause. Statt unsichtbar im Hintergrund zu arbeiten, bekommen sie eine visuelle Präsenz in einem Retro-Pixel-Art-Office — mit Echtzeit-Status, Raum-Zuweisungen und Activity Feeds.",
-      en: "Clawd Office gives your AI agents a home. Instead of running invisibly in the background, they get a visual presence in a retro pixel-art office — with real-time status, room assignments, and activity feeds.",
-    },
-    p2: {
-      de: "Du siehst auf einen Blick, welcher Agent gerade aktiv ist, woran er arbeitet und ob es Blockaden gibt. Perfekt für Teams, die mehrere autonome Agents koordinieren.",
-      en: "See at a glance which agent is active, what they're working on, and if there are blockers. Perfect for teams coordinating multiple autonomous agents.",
+    text: {
+      de: "Clawd Office ist ein Pixel-Art-Büro, das deinem AI-Agent-Team ein visuelles Zuhause gibt. Statt abstrakter Dashboards sitzen deine Agents in thematischen Räumen mit Live-Präsenz-Indikatoren. Sieh auf einen Blick, wer aktiv ist, wer blockiert ist und welche Tasks in der Queue stehen — wie ein echtes Büro, aber für AI.",
+      en: "Clawd Office is a pixel-art virtual office that gives your AI agent team a visual home. Instead of abstract dashboards, your agents sit in themed rooms with live presence indicators. See at a glance who's active, who's blocked, and what tasks are queued — like a real office, but for AI.",
     },
   },
-  features: {
-    label: { de: "Features", en: "Features" },
+  presence: {
     title: {
-      de: "Alles, was dein Agent-Team braucht",
-      en: "Everything your agent team needs",
+      de: "6 Präsenz-Status. Immer wissen, was passiert.",
+      en: "6 Presence States. Always Know What's Happening.",
+    },
+    sub: {
+      de: "Jeder Agent sendet seinen Status in Echtzeit.",
+      en: "Every agent broadcasts their status in real time.",
+    },
+    states: [
+      {
+        name: { de: "Aktiv", en: "Active" },
+        desc: {
+          de: "Führt gerade einen Task aus",
+          en: "Currently executing a task",
+        },
+      },
+      {
+        name: { de: "Verfügbar", en: "Available" },
+        desc: {
+          de: "Bereit für neue Aufgaben",
+          en: "Ready for new work",
+        },
+      },
+      {
+        name: { de: "Im Meeting", en: "In Meeting" },
+        desc: {
+          de: "Koordiniert mit anderen Agents",
+          en: "Coordinating with other agents",
+        },
+      },
+      {
+        name: { de: "Pausiert", en: "Paused" },
+        desc: {
+          de: "Token-sparende Pause zwischen Tasks",
+          en: "Token-saving pause between tasks",
+        },
+      },
+      {
+        name: { de: "Blockiert", en: "Blocked" },
+        desc: {
+          de: "Wartet auf externe Abhängigkeit",
+          en: "Waiting on external dependency",
+        },
+      },
+      {
+        name: { de: "Feierabend", en: "Off Hours" },
+        desc: {
+          de: "Außerhalb der Bürozeiten",
+          en: "Outside office hours",
+        },
+      },
+    ],
+  },
+  rooms: {
+    title: { de: "5 Räume. Ein Office.", en: "5 Themed Rooms. One Office." },
+    sub: {
+      de: "Jeder Raum hat einen Zweck. Agents sitzen dort, wo ihre Arbeit stattfindet.",
+      en: "Each room serves a purpose. Agents sit where their work happens.",
     },
     items: [
       {
-        title: { de: "Echtzeit-Präsenz", en: "Real-Time Presence" },
+        name: { de: "Planungsstudio", en: "Planning Studio" },
+        team: { de: "Produkt + UX", en: "Product + UX" },
+        icon: "📋",
+      },
+      {
+        name: { de: "Werft", en: "Shipyard" },
+        team: { de: "Build", en: "Build" },
+        icon: "🔨",
+      },
+      {
+        name: { de: "Systeme", en: "Systems Bay" },
+        team: { de: "Plattform", en: "Platform" },
+        icon: "⚙️",
+      },
+      {
+        name: { de: "Commons", en: "Commons" },
+        team: { de: "Gemeinsam", en: "Shared" },
+        icon: "🏠",
+      },
+      {
+        name: { de: "Signalraum", en: "Signal Room" },
+        team: { de: "Ops", en: "Ops" },
+        icon: "📡",
+      },
+    ],
+  },
+  features: {
+    title: {
+      de: "Alles, was dein Agent-Team braucht.",
+      en: "Everything Your Agent Team Needs.",
+    },
+    items: [
+      {
+        title: { de: "Agent-Verwaltung", en: "Agent CRUD" },
         desc: {
-          de: 'Sechs Status-Stufen — von „aktiv" bis „off-hours". Immer wissen, was deine Agents gerade tun.',
-          en: 'Six status levels — from "active" to "off-hours". Always know what your agents are doing.',
+          de: "Agents direkt über die UI erstellen, bearbeiten und löschen. Räume, Rollen und Sprites zuweisen.",
+          en: "Create, edit, delete agents from UI. Assign rooms, roles, and sprites.",
         },
         color: "teal" as const,
       },
       {
-        title: { de: "Task-Management", en: "Task Management" },
+        title: { de: "Task-Queue & Routing", en: "Task Queue & Routing" },
         desc: {
-          de: "Aufgaben mit Prioritäten zuweisen, routen und tracken. Keine verlorenen Tasks mehr.",
-          en: "Assign, route, and track tasks with priorities. No more lost work items.",
+          de: "Tasks mit Prioritäten zuweisen. An Agent-Runtime, Work-Tracker oder beides routen.",
+          en: "Assign tasks with priority levels. Route to agent runtime, work tracker, or both.",
         },
         color: "purple" as const,
       },
       {
-        title: { de: "Activity Log", en: "Activity Log" },
+        title: { de: "Activity Feed", en: "Activity Feed" },
         desc: {
-          de: "Chronologischer Feed aller Workspace-Events. Transparenz über alles, was passiert.",
-          en: "Chronological feed of all workspace events. Full transparency on everything that happens.",
+          de: "Chronologisches Log aller Zuweisungen, Präsenz-Änderungen und System-Events.",
+          en: "Chronological log of assignments, presence changes, and system events.",
         },
         color: "yellow" as const,
       },
       {
-        title: { de: "Automatischer Arbeitstag", en: "Automated Workday" },
+        title: { de: "Arbeitstag-Erkennung", en: "Workday Awareness" },
         desc: {
-          de: 'Berlin-Timezone Bürozeiten mit automatischem State-Management. Agents „kommen" und „gehen".',
-          en: 'Berlin timezone office hours with automatic state management. Agents "arrive" and "leave".',
-        },
-        color: "purple" as const,
-      },
-      {
-        title: { de: "Responsive & Mobile", en: "Responsive & Mobile" },
-        desc: {
-          de: "Optimiert für jede Bildschirmgröße. Dein Agent-Office passt in die Hosentasche.",
-          en: "Optimized for every screen size. Your agent office fits in your pocket.",
+          de: "Berliner Bürozeiten. Agents wechseln automatisch in den Feierabend-Modus.",
+          en: "Berlin-timezone office hours. Agents auto-switch to off-hours outside the window.",
         },
         color: "teal" as const,
+      },
+      {
+        title: { de: "Dual Backend", en: "Dual Backend" },
+        desc: {
+          de: "Postgres als Primär-DB mit automatischem JSON-Fallback. Null Konfiguration zum Start.",
+          en: "Postgres primary with automatic JSON file fallback. Zero-config to get started.",
+        },
+        color: "purple" as const,
       },
       {
         title: {
@@ -90,51 +177,43 @@ export const translations = {
           en: "Accessible (WCAG 2.1 AA)",
         },
         desc: {
-          de: "Keyboard-Navigation, Screen-Reader-Support und reduzierte Bewegungen — für alle.",
-          en: "Keyboard navigation, screen reader support, and reduced motion — for everyone.",
+          de: "Keyboard-Navigation, Screen-Reader-Support, Fokus-Indikatoren, Reduced-Motion.",
+          en: "Keyboard nav, screen reader support, focus indicators, reduced motion respect.",
         },
         color: "yellow" as const,
       },
     ],
   },
   tech: {
-    label: { de: "Tech Stack", en: "Tech Stack" },
-    title: {
-      de: "Moderne Technologie, solide Basis",
-      en: "Modern technology, solid foundation",
-    },
-    sub: {
-      de: "Gebaut mit den Tools, die Entwickler lieben.",
-      en: "Built with the tools developers love.",
-    },
+    title: { de: "Gebaut mit", en: "Built With" },
   },
   quickstart: {
-    label: { de: "Schnellstart", en: "Quickstart" },
     title: {
-      de: "In 3 Zeilen zum eigenen Agent-Office",
-      en: "Your own agent office in 3 lines",
+      de: "In 60 Sekunden startklar.",
+      en: "Up and Running in 60 Seconds.",
     },
-    comment: {
-      de: "# ✓ Setup-Wizard führt durch DB-Konfiguration",
-      en: "# ✓ Setup wizard guides you through DB config",
+    note: {
+      de: "Der interaktive Setup-Wizard führt dich durch Backend- und Timezone-Konfiguration.",
+      en: "Interactive setup wizard guides you through backend & timezone config.",
     },
   },
   cta: {
-    builtBy: "Built by Pixel & Process",
+    label: "Built by Pixel & Process",
     title: {
-      de: "Wir bauen Lösungen wie diese.\nFür Teams, die AI ernst nehmen.",
-      en: "We build solutions like this.\nFor teams that take AI seriously.",
+      de: "Gib deinen Agents einen Arbeitsplatz.",
+      en: "Give your agents a place to work.",
     },
     sub: {
-      de: "Clawd Office ist ein Beispiel dafür, was passiert, wenn Entwicklung und Design zusammenkommen. Du brauchst etwas Ähnliches? Lass uns reden.",
-      en: "Clawd Office is an example of what happens when development and design come together. Need something similar? Let's talk.",
+      de: "Open Source, MIT-lizenziert. Klonen, hacken, zu deinem machen.",
+      en: "Open source, MIT licensed. Clone it, hack it, make it yours.",
     },
-    ctaPrimary: { de: "Projekt starten", en: "Start a Project" },
+    ctaPrimary: { de: "Repository klonen", en: "Clone Repository" },
+    ctaSecondary: { de: "Dokumentation lesen", en: "Read the Docs" },
   },
   footer: {
     copy: {
-      de: "© 2026 Pixel & Process · Lübeck, Deutschland",
-      en: "© 2026 Pixel & Process · Lübeck, Germany",
+      de: "© 2026 Pixel & Process. MIT-Lizenz.",
+      en: "© 2026 Pixel & Process. MIT License.",
     },
     imprint: { de: "Impressum", en: "Legal" },
     privacy: { de: "Datenschutz", en: "Privacy" },
