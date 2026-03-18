@@ -9,6 +9,7 @@ import Rooms from "@/components/Rooms";
 import Features from "@/components/Features";
 import TechStack from "@/components/TechStack";
 import Quickstart from "@/components/Quickstart";
+import AgencyBanner from "@/components/AgencyBanner";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 
@@ -23,6 +24,7 @@ export default function Home() {
       <Features />
       <TechStack />
       <Quickstart />
+      <AgencyBanner />
       <CtaSection />
       <Footer />
     </LangProvider>

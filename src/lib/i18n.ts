@@ -197,8 +197,43 @@ export const translations = {
       en: "Interactive setup wizard guides you through backend & timezone config.",
     },
   },
+  agency: {
+    label: { de: "Von den Machern", en: "From the makers" },
+    title: {
+      de: "Gebaut von Pixel & Process",
+      en: "Built by Pixel & Process",
+    },
+    sub: {
+      de: "Wir sind eine Agentur für AI-gestützte Softwarelösungen aus Lübeck. Von Strategie über Design bis zur technischen Umsetzung — wir bauen digitale Produkte, die funktionieren.",
+      en: "We're an agency for AI-powered software solutions based in Lübeck, Germany. From strategy to design to technical implementation — we build digital products that work.",
+    },
+    services: [
+      {
+        title: { de: "AI-Automatisierung", en: "AI Automation" },
+        desc: {
+          de: "Agenten-Systeme, Workflows und intelligente Prozesse für dein Unternehmen.",
+          en: "Agent systems, workflows, and intelligent processes for your business.",
+        },
+      },
+      {
+        title: { de: "Web-Entwicklung", en: "Web Development" },
+        desc: {
+          de: "Performante Webapps mit React, Next.js und modernem Stack.",
+          en: "High-performance web apps with React, Next.js, and modern stack.",
+        },
+      },
+      {
+        title: { de: "Produkt & Design", en: "Product & Design" },
+        desc: {
+          de: "Von der Idee zum MVP — UX, UI und Branding aus einer Hand.",
+          en: "From idea to MVP — UX, UI, and branding under one roof.",
+        },
+      },
+    ],
+    ctaPrimary: { de: "Projekt anfragen", en: "Start a Project" },
+    ctaSecondary: { de: "pixelandprocess.de", en: "pixelandprocess.de" },
+  },
   cta: {
-    label: "Built by Pixel & Process",
     title: {
       de: "Gib deinen Agents einen Arbeitsplatz.",
       en: "Give your agents a place to work.",

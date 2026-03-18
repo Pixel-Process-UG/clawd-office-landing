@@ -7,19 +7,8 @@ export default function CtaSection() {
   const { t } = useLang();
 
   return (
-    <section className="bg-brand-yellow border-y-[3px] border-brand-black py-20">
+    <section className="bg-brand-yellow border-y-[3px] border-brand-black py-16">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <img
-            src="https://fsn1.your-objectstorage.com/pp-strapi/pp_icon_color_606e1b4397.svg"
-            alt="Pixel & Process"
-            className="w-6 h-6"
-          />
-          <span className="text-xs font-semibold uppercase tracking-wider">
-            {translations.cta.label}
-          </span>
-        </div>
-
         <h2 className="font-heading font-extrabold text-3xl mb-4">
           {t(translations.cta.title)}
         </h2>
