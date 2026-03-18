@@ -32,7 +32,7 @@ export default function Footer() {
             pixelandprocess.de
           </a>
           <a
-            href="https://github.com/fwartner/clawd-office"
+            href="https://github.com/fwartner/agent-office"
             target="_blank"
             rel="noopener noreferrer"
             className="min-h-[44px] flex items-center hover:text-brand-teal transition-colors touch-manipulation"

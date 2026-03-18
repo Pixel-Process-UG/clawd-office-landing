@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "raw.githubusercontent.com",
-        pathname: "/fwartner/clawd-office/**",
+        pathname: "/fwartner/agent-office/**",
       },
       {
         protocol: "https",

@@ -27,8 +27,8 @@ export default function WhatIs() {
           {/* Right column - Screenshot */}
           <div className="border-neo shadow-neo-lg overflow-hidden">
             <Image
-              src="https://raw.githubusercontent.com/fwartner/clawd-office/main/assets/readme/virtual-office-screenshot.jpg"
-              alt="Clawd Office Screenshot"
+              src="https://raw.githubusercontent.com/fwartner/agent-office/main/assets/readme/virtual-office-screenshot.jpg"
+              alt="Agent Office Screenshot"
               width={800}
               height={500}
               className="w-full h-auto"

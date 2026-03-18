@@ -29,7 +29,7 @@ export default function Quickstart() {
           <div className="bg-brand-dark p-5 font-mono text-sm leading-loose overflow-x-auto">
             <div>
               <span className="text-brand-teal">$</span>{" "}
-              <span className="text-white">git clone https://github.com/fwartner/clawd-office.git</span>
+              <span className="text-white">git clone https://github.com/fwartner/agent-office.git</span>
             </div>
             <div>
               <span className="text-brand-teal">$</span>{" "}

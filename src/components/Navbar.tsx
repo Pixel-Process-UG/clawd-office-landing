@@ -10,7 +10,7 @@ const navLinks = [
   { href: "#tech", key: "tech" as const, external: false },
   { href: "#quickstart", key: "quickstart" as const, external: false },
   {
-    href: "https://github.com/fwartner/clawd-office",
+    href: "https://github.com/fwartner/agent-office",
     key: "github" as const,
     external: true,
   },

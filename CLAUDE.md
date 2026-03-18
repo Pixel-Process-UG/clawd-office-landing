@@ -37,4 +37,4 @@ Next.js 16 landing page for "Agent Office" - a pixel-art virtual office for AI a
 
 ## Remote Images
 
-Images are loaded from `https://raw.githubusercontent.com/fwartner/clawd-office/**` - configured in `next.config.ts` remotePatterns.
+Images are loaded from `https://raw.githubusercontent.com/fwartner/agent-office/**` - configured in `next.config.ts` remotePatterns.

@@ -37,7 +37,7 @@ export default function Hero() {
               {t(translations.hero.ctaPrimary)}
             </a>
             <a
-              href="https://github.com/fwartner/clawd-office"
+              href="https://github.com/fwartner/agent-office"
               target="_blank"
               rel="noopener noreferrer"
               className="font-heading font-semibold text-sm min-h-[44px] px-7 py-3.5 border-neo bg-brand-white shadow-neo shadow-neo-hover transition-all inline-flex items-center justify-center gap-2 touch-manipulation focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
@@ -74,7 +74,7 @@ export default function Hero() {
             </div>
             {/* Screenshot */}
             <Image
-              src="https://raw.githubusercontent.com/fwartner/clawd-office/main/assets/readme/virtual-office-screenshot.jpg"
+              src="https://raw.githubusercontent.com/fwartner/agent-office/main/assets/readme/virtual-office-screenshot.jpg"
               alt="Agent Office virtual office screenshot"
               width={800}
               height={500}

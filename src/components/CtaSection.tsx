@@ -19,7 +19,7 @@ export default function CtaSection() {
 
         <div className="flex justify-center gap-4 flex-wrap">
           <a
-            href="https://github.com/fwartner/clawd-office"
+            href="https://github.com/fwartner/agent-office"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-brand-black text-white border-neo min-h-[44px] px-6 py-3 font-bold shadow-neo shadow-neo-hover transition-all inline-flex items-center justify-center touch-manipulation focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
@@ -28,7 +28,7 @@ export default function CtaSection() {
             {t(translations.cta.ctaPrimary)}
           </a>
           <a
-            href="https://github.com/fwartner/clawd-office#readme"
+            href="https://github.com/fwartner/agent-office#readme"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white border-neo shadow-neo shadow-neo-hover min-h-[44px] px-6 py-3 font-bold transition-all inline-flex items-center justify-center touch-manipulation focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
