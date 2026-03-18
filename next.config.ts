@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "raw.githubusercontent.com",
         pathname: "/fwartner/clawd-office/**",
       },
+      {
+        protocol: "https",
+        hostname: "fsn1.your-objectstorage.com",
+        pathname: "/pp-strapi/**",
+      },
     ],
   },
 };
