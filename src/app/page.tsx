@@ -11,6 +11,7 @@ import TechStack from "@/components/TechStack";
 import Quickstart from "@/components/Quickstart";
 import AgencyBanner from "@/components/AgencyBanner";
 import CtaSection from "@/components/CtaSection";
+import CookieBanner from "@/components/CookieBanner";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
       <AgencyBanner />
       <CtaSection />
       <Footer />
+      <CookieBanner />
     </LangProvider>
   );
 }

@@ -1,10 +1,12 @@
 "use client";
 
 import { useLang } from "@/context/LangContext";
+import { useCookieConsent } from "@/context/CookieConsentContext";
 import { translations } from "@/lib/i18n";
 
 export default function Footer() {
   const { t } = useLang();
+  const { openSettings } = useCookieConsent();
 
   return (
     <footer className="bg-brand-black py-6">
@@ -53,6 +55,13 @@ export default function Footer() {
           >
             {t(translations.footer.privacy)}
           </a>
+          <button
+            type="button"
+            onClick={openSettings}
+            className="text-sm text-gray-500 hover:text-brand-teal transition-colors"
+          >
+            {t(translations.cookie.cookieSettings)}
+          </button>
         </div>
       </div>
     </footer>

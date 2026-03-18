@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat, Roboto } from "next/font/google";
-import Script from "next/script";
+import RootClientWrapper from "@/components/RootClientWrapper";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -40,12 +40,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${roboto.variable} antialiased`}
       >
-        {children}
-        <Script
-          src="https://analytics.pixelandprocess.de/script.js"
-          data-website-id="d29214eb-ae23-4389-90ed-0f33d09358a8"
-          strategy="afterInteractive"
-        />
+        <RootClientWrapper>{children}</RootClientWrapper>
       </body>
     </html>
   );

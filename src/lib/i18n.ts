@@ -253,4 +253,43 @@ export const translations = {
     imprint: { de: "Impressum", en: "Legal" },
     privacy: { de: "Datenschutz", en: "Privacy" },
   },
+  cookie: {
+    title: {
+      de: "Cookie-Einstellungen",
+      en: "Cookie Settings",
+    },
+    intro: {
+      de: "Wir verwenden Cookies, um die Nutzung unserer Website zu analysieren und dein Erlebnis zu verbessern. Du kannst alle Cookies akzeptieren, nur notwendige zulassen oder deine Einstellungen anpassen.",
+      en: "We use cookies to analyze how our website is used and to improve your experience. You can accept all cookies, allow only necessary ones, or customize your settings.",
+    },
+    essential: {
+      de: "Notwendige Cookies sind für die Grundfunktionen der Website erforderlich und können nicht deaktiviert werden.",
+      en: "Essential cookies are required for basic website functionality and cannot be disabled.",
+    },
+    analytics: {
+      de: "Analytics-Cookies helfen uns zu verstehen, wie Besucher unsere Website nutzen (z. B. Umami). Die Daten werden anonymisiert und nicht an Dritte weitergegeben.",
+      en: "Analytics cookies help us understand how visitors use our website (e.g. Umami). Data is anonymized and not shared with third parties.",
+    },
+    marketing: {
+      de: "Marketing-Cookies werden derzeit nicht verwendet.",
+      en: "Marketing cookies are not currently used.",
+    },
+    acceptAll: { de: "Alle akzeptieren", en: "Accept All" },
+    rejectNonEssential: {
+      de: "Nur notwendige",
+      en: "Essential Only",
+    },
+    customize: { de: "Einstellungen", en: "Customize" },
+    save: { de: "Speichern", en: "Save" },
+    privacyLink: {
+      de: "Weitere Informationen findest du in unserer Datenschutzerklärung.",
+      en: "Find more information in our privacy policy.",
+    },
+    provider: {
+      de: "Cookie-Verwaltung durch Pixel & Process",
+      en: "Cookie management by Pixel & Process",
+    },
+    dismiss: { de: "Schließen", en: "Close" },
+    cookieSettings: { de: "Cookie-Einstellungen", en: "Cookie Settings" },
+  },
 } as const;
