@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="de" data-lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawd Office — Pixel-Art Virtual Office for AI Agent Teams</title>
+  <meta name="description" content="A pixel-art virtual workspace where AI agents operate with visual presence and real-time status. Built by Pixel & Process.">
+  <link rel="preconnect" href="https://fonts.bunny.net">
+  <link href="https://fonts.bunny.net/css?family=montserrat:400,500,600,700|roboto:300,400,500,700&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & BASE
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --brand-black: #0A0A0A;
+      --brand-white: #FAFAFA;
+      --brand-yellow: #EAD391;
+      --brand-purple: #D6B6E1;
+      --brand-teal: #0099A1;
+      --shadow-neo: 4px 4px 0px var(--brand-black);
+      --shadow-neo-sm: 2px 2px 0px var(--brand-black);
+      --shadow-neo-lg: 6px 6px 0px var(--brand-black);
+      --font-heading: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+      --font-body: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+      --pixel-border: 3px solid var(--brand-black);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--brand-black);
+      background: var(--brand-white);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Language toggle */
+    [data-lang="de"] [data-en],
+    [data-lang="en"] [data-de] { display: none !important; }
+
+    /* ═══════════════════════════════════════════
+       PIXEL ART DECORATIONS
+    ═══════════════════════════════════════════ */
+    .pixel-dot {
+      width: 8px; height: 8px;
+      background: var(--brand-teal);
+      image-rendering: pixelated;
+    }
+
+    .pixel-grid {
+      background-image:
+        linear-gradient(rgba(10,10,10,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,0.04) 1px, transparent 1px);
+      background-size: 16px 16px;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-in {
+      animation: slideUp 0.5s ease-out both;
+    }
+
+    /* ═══════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--brand-white);
+      border-bottom: var(--pixel-border);
+      padding: 16px 0;
+    }
+
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo .pixel-icon {
+      width: 32px; height: 32px;
+      background: var(--brand-teal);
+      border: 2px solid var(--brand-black);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      image-rendering: pixelated;
+      overflow: hidden;
+    }
+
+    .nav-logo .pixel-icon span {
+      background: var(--brand-purple);
+    }
+
+    .nav-logo .pixel-icon span:nth-child(1) { grid-area: 1/2/2/4; }
+    .nav-logo .pixel-icon span:nth-child(2) { grid-area: 2/1/3/2; }
+    .nav-logo .pixel-icon span:nth-child(3) { grid-area: 3/3/4/5; background: var(--brand-yellow); }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a:hover { color: var(--brand-teal); }
+
+    .lang-toggle {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      background: var(--brand-yellow);
+      border: 2px solid var(--brand-black);
+      padding: 4px 12px;
+      cursor: pointer;
+      box-shadow: var(--shadow-neo-sm);
+      transition: all 0.15s;
+    }
+
+    .lang-toggle:hover {
+      transform: translate(2px, 2px);
+      box-shadow: none;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      padding: 80px 0 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-image:
+        linear-gradient(rgba(10,10,10,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10,10,10,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--brand-teal);
+      margin-bottom: 20px;
+    }
+
+    .hero-badge .dot {
+      width: 8px; height: 8px;
+      background: var(--brand-teal);
+      animation: blink 1.5s infinite;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 .highlight {
+      background: var(--brand-yellow);
+      padding: 0 8px;
+      border: 2px solid var(--brand-black);
+      display: inline-block;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: #444;
+      max-width: 480px;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 14px 28px;
+      border: var(--pixel-border);
+      cursor: pointer;
+      transition: all 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: var(--brand-purple);
+      color: var(--brand-black);
+      box-shadow: var(--shadow-neo);
+    }
+
+    .btn-primary:hover {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: var(--brand-white);
+      color: var(--brand-black);
+      box-shadow: var(--shadow-neo);
+    }
+
+    .btn-secondary:hover {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-screenshot {
+      border: var(--pixel-border);
+      box-shadow: var(--shadow-neo-lg);
+      background: var(--brand-black);
+      overflow: hidden;
+    }
+
+    .hero-screenshot img {
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-screenshot .placeholder {
+      aspect-ratio: 16/10;
+      background:
+        linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Pixel art office scene placeholder */
+    .pixel-scene {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      image-rendering: pixelated;
+    }
+
+    .pixel-floor {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background:
+        repeating-conic-gradient(#2a2a4a 0% 25%, #1e1e3a 0% 50%) 0 0 / 32px 32px;
+    }
+
+    .pixel-agent {
+      position: absolute;
+      width: 24px;
+      height: 32px;
+      image-rendering: pixelated;
+    }
+
+    .pixel-agent-1 {
+      bottom: 42%; left: 25%;
+      background: var(--brand-teal);
+      border: 2px solid var(--brand-black);
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .pixel-agent-2 {
+      bottom: 42%; left: 55%;
+      background: var(--brand-purple);
+      border: 2px solid var(--brand-black);
+      animation: float 2s ease-in-out infinite 0.5s;
+    }
+
+    .pixel-agent-3 {
+      bottom: 42%; left: 75%;
+      background: var(--brand-yellow);
+      border: 2px solid var(--brand-black);
+      animation: float 2s ease-in-out infinite 1s;
+    }
+
+    .pixel-status {
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 0;
+      border: 1px solid var(--brand-black);
+    }
+
+    .status-active { background: #22c55e; }
+    .status-meeting { background: var(--brand-purple); }
+    .status-paused { background: var(--brand-yellow); }
+
+    /* Floating labels in hero */
+    .hero-float-label {
+      position: absolute;
+      background: var(--brand-white);
+      border: 2px solid var(--brand-black);
+      padding: 8px 14px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.75rem;
+      box-shadow: var(--shadow-neo-sm);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-float-label.top-right {
+      top: -12px;
+      right: -8px;
+    }
+
+    .hero-float-label.bottom-left {
+      bottom: -12px;
+      left: -8px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+    }
+
+    .status-dot.meeting { background: var(--brand-purple); }
+
+    /* ═══════════════════════════════════════════
+       SECTION: WHAT IS
+    ═══════════════════════════════════════════ */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-alt {
+      background: var(--brand-black);
+      color: var(--brand-white);
+    }
+
+    .section-yellow {
+      background: var(--brand-yellow);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 56px;
+    }
+
+    .section-header .label {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-teal);
+      margin-bottom: 12px;
+    }
+
+    .section-alt .section-header .label {
+      color: var(--brand-yellow);
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header p {
+      font-size: 1.05rem;
+      color: #666;
+      font-weight: 300;
+    }
+
+    .section-alt .section-header p {
+      color: #aaa;
+    }
+
+    /* What-is grid */
+    .what-is-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .what-is-text {
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .what-is-text p + p { margin-top: 16px; }
+
+    .what-is-visual {
+      border: var(--pixel-border);
+      box-shadow: var(--shadow-neo-lg);
+      overflow: hidden;
+      background: #111;
+    }
+
+    .what-is-visual img {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ═══════════════════════════════════════════
+       FEATURES
+    ═══════════════════════════════════════════ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      border: var(--pixel-border);
+      padding: 32px 24px;
+      background: var(--brand-white);
+      box-shadow: var(--shadow-neo);
+      transition: all 0.15s;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      transform: translate(4px, 4px);
+      box-shadow: none;
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      margin-bottom: 20px;
+      image-rendering: pixelated;
+      border: 2px solid var(--brand-black);
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #555;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .section-alt .feature-card {
+      background: #1a1a1a;
+      border-color: #333;
+    }
+
+    .section-alt .feature-card p {
+      color: #999;
+    }
+
+    .section-alt .feature-card:hover {
+      box-shadow: none;
+      border-color: var(--brand-teal);
+    }
+
+    /* Icon color fills */
+    .icon-presence { background: var(--brand-teal); }
+    .icon-tasks { background: var(--brand-purple); }
+    .icon-activity { background: var(--brand-yellow); }
+    .icon-responsive { background: var(--brand-teal); }
+    .icon-workday { background: var(--brand-purple); }
+    .icon-accessible { background: var(--brand-yellow); }
+
+    /* ═══════════════════════════════════════════
+       TECH STACK
+    ═══════════════════════════════════════════ */
+    .tech-stack-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .tech-badge {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border: var(--pixel-border);
+      background: var(--brand-white);
+      box-shadow: var(--shadow-neo-sm);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-alt .tech-badge {
+      background: #1a1a1a;
+      border-color: #444;
+      color: var(--brand-white);
+    }
+
+    .tech-badge .tech-dot {
+      width: 10px;
+      height: 10px;
+    }
+
+    .tech-dot.react { background: #61dafb; }
+    .tech-dot.ts { background: #3178c6; }
+    .tech-dot.vite { background: #646cff; }
+    .tech-dot.node { background: #339933; }
+    .tech-dot.pg { background: #336791; }
+
+    /* ═══════════════════════════════════════════
+       QUICKSTART
+    ═══════════════════════════════════════════ */
+    .quickstart-box {
+      max-width: 640px;
+      margin: 0 auto;
+      border: var(--pixel-border);
+      background: #111;
+      color: #e0e0e0;
+      font-family: 'Roboto Mono', 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-neo-lg);
+    }
+
+    .quickstart-header {
+      background: #1a1a1a;
+      padding: 12px 16px;
+      border-bottom: 2px solid #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border: 1px solid #333;
+    }
+
+    .terminal-dot:nth-child(1) { background: #ff5f57; }
+    .terminal-dot:nth-child(2) { background: #ffbd2e; }
+    .terminal-dot:nth-child(3) { background: #28c840; }
+
+    .quickstart-body {
+      padding: 20px;
+      line-height: 2;
+    }
+
+    .quickstart-body .prompt {
+      color: var(--brand-teal);
+    }
+
+    .quickstart-body .comment {
+      color: #555;
+    }
+
+    /* ═══════════════════════════════════════════
+       CTA / BUILT BY
+    ═══════════════════════════════════════════ */
+    .cta-section {
+      padding: 80px 0;
+      background: var(--brand-yellow);
+      border-top: var(--pixel-border);
+      border-bottom: var(--pixel-border);
+    }
+
+    .cta-content {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .cta-content .pp-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .pp-logo-mark {
+      width: 24px;
+      height: 24px;
+      background: var(--brand-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pp-logo-mark span {
+      color: var(--brand-yellow);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-content p {
+      font-size: 1.05rem;
+      margin-bottom: 32px;
+      color: #333;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    footer {
+      background: var(--brand-black);
+      color: #888;
+      padding: 40px 0;
+      border-top: var(--pixel-border);
+    }
+
+    footer .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--brand-white);
+      font-size: 0.9rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover { color: var(--brand-teal); }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-sub { margin-left: auto; margin-right: auto; }
+      .hero-ctas { justify-content: center; }
+      .what-is-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .hero { padding: 48px 0 40px; }
+      .section { padding: 56px 0; }
+      .hero-float-label { display: none; }
+      .tech-stack-row { gap: 12px; }
+      .tech-badge { padding: 8px 16px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════ NAV ═══════ -->
+  <nav>
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <div class="pixel-icon"><span></span><span></span><span></span></div>
+        Clawd Office
+      </a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#features" data-de>Features</a><a href="#features" data-en>Features</a></li>
+          <li><a href="#tech" data-de>Tech Stack</a><a href="#tech" data-en>Tech Stack</a></li>
+          <li><a href="#start" data-de>Quickstart</a><a href="#start" data-en>Quickstart</a></li>
+          <li><a href="https://github.com/fwartner/clawd-office" target="_blank">GitHub</a></li>
+        </ul>
+        <button class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">
+          <span data-de>EN</span>
+          <span data-en>DE</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════ HERO ═══════ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <div class="dot"></div>
+          <span data-de>Open Source &middot; MIT Lizenz</span>
+          <span data-en>Open Source &middot; MIT License</span>
+        </div>
+
+        <h1 data-de>
+          Dein <span class="highlight">Pixel-Art</span> Office<br>
+          f&uuml;r AI&#8209;Agents
+        </h1>
+        <h1 data-en>
+          Your <span class="highlight">Pixel-Art</span> Office<br>
+          for AI Agents
+        </h1>
+
+        <p class="hero-sub" data-de>
+          Ein virtueller Workspace, in dem AI-Agents mit Echtzeit-Pr&auml;senz, Status-Tracking und Task-Management arbeiten &mdash; in einer Retro-Pixel-Welt.
+        </p>
+        <p class="hero-sub" data-en>
+          A virtual workspace where AI agents operate with real-time presence, status tracking, and task management &mdash; in a retro pixel world.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="https://pixelandprocess.de" target="_blank" class="btn btn-primary" data-de>Projekt starten &rarr;</a>
+          <a href="https://pixelandprocess.de" target="_blank" class="btn btn-primary" data-en>Start a Project &rarr;</a>
+          <a href="https://github.com/fwartner/clawd-office" target="_blank" class="btn btn-secondary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-float-label top-right">
+          <div class="status-dot"></div>
+          <span data-de>3 Agents aktiv</span>
+          <span data-en>3 Agents active</span>
+        </div>
+        <div class="hero-screenshot">
+          <div class="placeholder pixel-scene">
+            <div class="pixel-floor"></div>
+            <div class="pixel-agent pixel-agent-1">
+              <div class="pixel-status status-active"></div>
+            </div>
+            <div class="pixel-agent pixel-agent-2">
+              <div class="pixel-status status-meeting"></div>
+            </div>
+            <div class="pixel-agent pixel-agent-3">
+              <div class="pixel-status status-paused"></div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-float-label bottom-left">
+          <span data-de>&#9881; Task-Queue l&auml;uft</span>
+          <span data-en>&#9881; Task queue running</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ WHAT IS ═══════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="label" data-de>Was ist Clawd Office?</div>
+        <div class="label" data-en>What is Clawd Office?</div>
+        <h2 data-de>Ein virtuelles B&uuml;ro f&uuml;r deine AI-Agent-Teams</h2>
+        <h2 data-en>A virtual office for your AI agent teams</h2>
+      </div>
+      <div class="what-is-grid">
+        <div class="what-is-text">
+          <p data-de>
+            Clawd Office gibt deinen AI-Agents ein Zuhause. Statt unsichtbar im Hintergrund zu arbeiten, bekommen sie eine visuelle Pr&auml;senz in einem Retro-Pixel-Art-Office &mdash; mit Echtzeit-Status, Raum-Zuweisungen und Activity Feeds.
+          </p>
+          <p data-en>
+            Clawd Office gives your AI agents a home. Instead of running invisibly in the background, they get a visual presence in a retro pixel-art office &mdash; with real-time status, room assignments, and activity feeds.
+          </p>
+          <p data-de>
+            Du siehst auf einen Blick, welcher Agent gerade aktiv ist, woran er arbeitet und ob es Blockaden gibt. Perfekt f&uuml;r Teams, die mehrere autonome Agents koordinieren.
+          </p>
+          <p data-en>
+            See at a glance which agent is active, what they're working on, and if there are blockers. Perfect for teams coordinating multiple autonomous agents.
+          </p>
+        </div>
+        <div class="what-is-visual">
+          <img src="https://raw.githubusercontent.com/fwartner/clawd-office/main/assets/readme/virtual-office-screenshot.jpg"
+               alt="Clawd Office Screenshot"
+               loading="lazy"
+               onerror="this.parentElement.innerHTML='<div style=\'aspect-ratio:16/10;background:linear-gradient(135deg,#1a1a2e,#0f3460);display:flex;align-items:center;justify-content:center;color:#888;font-family:var(--font-heading);font-size:0.9rem;\'>Screenshot &mdash; clawd-office</div>'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FEATURES ═══════ -->
+  <section class="section section-alt" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="label" data-de>Features</div>
+        <div class="label" data-en>Features</div>
+        <h2 data-de>Alles, was dein Agent-Team braucht</h2>
+        <h2 data-en>Everything your agent team needs</h2>
+      </div>
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-icon icon-presence"></div>
+          <h3 data-de>Echtzeit-Pr&auml;senz</h3>
+          <h3 data-en>Real-Time Presence</h3>
+          <p data-de>Sechs Status-Stufen &mdash; von &bdquo;aktiv&ldquo; bis &bdquo;off-hours&ldquo;. Immer wissen, was deine Agents gerade tun.</p>
+          <p data-en>Six status levels &mdash; from "active" to "off-hours". Always know what your agents are doing.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-tasks"></div>
+          <h3 data-de>Task-Management</h3>
+          <h3 data-en>Task Management</h3>
+          <p data-de>Aufgaben mit Priorit&auml;ten zuweisen, routen und tracken. Keine verlorenen Tasks mehr.</p>
+          <p data-en>Assign, route, and track tasks with priorities. No more lost work items.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-activity"></div>
+          <h3 data-de>Activity Log</h3>
+          <h3 data-en>Activity Log</h3>
+          <p data-de>Chronologischer Feed aller Workspace-Events. Transparenz &uuml;ber alles, was passiert.</p>
+          <p data-en>Chronological feed of all workspace events. Full transparency on everything that happens.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-workday"></div>
+          <h3 data-de>Automatischer Arbeitstag</h3>
+          <h3 data-en>Automated Workday</h3>
+          <p data-de>Berlin-Timezone B&uuml;rozeiten mit automatischem State-Management. Agents &bdquo;kommen&ldquo; und &bdquo;gehen&ldquo;.</p>
+          <p data-en>Berlin timezone office hours with automatic state management. Agents "arrive" and "leave".</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-responsive"></div>
+          <h3 data-de>Responsive &amp; Mobile</h3>
+          <h3 data-en>Responsive &amp; Mobile</h3>
+          <p data-de>Optimiert f&uuml;r jede Bildschirmgr&ouml;&szlig;e. Dein Agent-Office passt in die Hosentasche.</p>
+          <p data-en>Optimized for every screen size. Your agent office fits in your pocket.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon icon-accessible"></div>
+          <h3 data-de>Barrierefrei (WCAG 2.1 AA)</h3>
+          <h3 data-en>Accessible (WCAG 2.1 AA)</h3>
+          <p data-de>Keyboard-Navigation, Screen-Reader-Support und reduzierte Bewegungen &mdash; f&uuml;r alle.</p>
+          <p data-en>Keyboard navigation, screen reader support, and reduced motion &mdash; for everyone.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ TECH STACK ═══════ -->
+  <section class="section" id="tech">
+    <div class="container">
+      <div class="section-header">
+        <div class="label">Tech Stack</div>
+        <h2 data-de>Moderne Technologie, solide Basis</h2>
+        <h2 data-en>Modern technology, solid foundation</h2>
+        <p data-de>Gebaut mit den Tools, die Entwickler lieben.</p>
+        <p data-en>Built with the tools developers love.</p>
+      </div>
+      <div class="tech-stack-row">
+        <div class="tech-badge"><div class="tech-dot react"></div> React 18</div>
+        <div class="tech-badge"><div class="tech-dot ts"></div> TypeScript 5.6</div>
+        <div class="tech-badge"><div class="tech-dot vite"></div> Vite 5</div>
+        <div class="tech-badge"><div class="tech-dot node"></div> Node.js</div>
+        <div class="tech-badge"><div class="tech-dot pg"></div> PostgreSQL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ QUICKSTART ═══════ -->
+  <section class="section section-alt" id="start">
+    <div class="container">
+      <div class="section-header">
+        <div class="label" data-de>Schnellstart</div>
+        <div class="label" data-en>Quickstart</div>
+        <h2 data-de>In 3 Zeilen zum eigenen Agent-Office</h2>
+        <h2 data-en>Your own agent office in 3 lines</h2>
+      </div>
+      <div class="quickstart-box">
+        <div class="quickstart-header">
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <span style="margin-left: 8px;">Terminal</span>
+        </div>
+        <div class="quickstart-body">
+          <span class="comment"># Clone &amp; install</span><br>
+          <span class="prompt">$</span> git clone https://github.com/fwartner/clawd-office.git<br>
+          <span class="prompt">$</span> cd clawd-office &amp;&amp; npm install<br><br>
+          <span class="comment"># Start dev server</span><br>
+          <span class="prompt">$</span> npm run dev<br><br>
+          <span class="comment" data-de># &#10003; Setup-Wizard f&uuml;hrt durch DB-Konfiguration</span>
+          <span class="comment" data-en># &#10003; Setup wizard guides you through DB config</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ CTA / BUILT BY ═══════ -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <div class="pp-logo">
+          <div class="pp-logo-mark"><span>P&P</span></div>
+          Built by Pixel &amp; Process
+        </div>
+        <h2 data-de>Wir bauen L&ouml;sungen wie diese.<br>F&uuml;r Teams, die AI ernst nehmen.</h2>
+        <h2 data-en>We build solutions like this.<br>For teams that take AI seriously.</h2>
+        <p data-de>Clawd Office ist ein Beispiel daf&uuml;r, was passiert, wenn Entwicklung und Design zusammenkommen. Du brauchst etwas &Auml;hnliches? Lass uns reden.</p>
+        <p data-en>Clawd Office is an example of what happens when development and design come together. Need something similar? Let's talk.</p>
+        <div class="cta-buttons">
+          <a href="https://pixelandprocess.de" target="_blank" class="btn btn-primary" style="background: var(--brand-black); color: var(--brand-white); border-color: var(--brand-black);">
+            <span data-de>Projekt starten &rarr;</span>
+            <span data-en>Start a Project &rarr;</span>
+          </a>
+          <a href="https://github.com/fwartner/clawd-office" target="_blank" class="btn btn-secondary" style="border-color: var(--brand-black);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════ FOOTER ═══════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-brand">
+        <span data-de>&copy; 2026 Pixel &amp; Process &middot; L&uuml;beck, Deutschland</span>
+        <span data-en>&copy; 2026 Pixel &amp; Process &middot; L&uuml;beck, Germany</span>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://pixelandprocess.de" target="_blank">pixelandprocess.de</a></li>
+        <li><a href="https://github.com/fwartner/clawd-office" target="_blank">GitHub</a></li>
+        <li><a href="https://pixelandprocess.de/impressum" target="_blank">
+          <span data-de>Impressum</span><span data-en>Legal</span>
+        </a></li>
+        <li><a href="https://pixelandprocess.de/datenschutz" target="_blank">
+          <span data-de>Datenschutz</span><span data-en>Privacy</span>
+        </a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ═══════ LANGUAGE TOGGLE SCRIPT ═══════ -->
+  <script>
+    function toggleLang() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-lang');
+      const next = current === 'de' ? 'en' : 'de';
+      html.setAttribute('data-lang', next);
+      localStorage.setItem('clawd-lang', next);
+    }
+
+    // Restore language preference
+    (function() {
+      const saved = localStorage.getItem('clawd-lang');
+      if (saved) document.documentElement.setAttribute('data-lang', saved);
+    })();
+
+    // Intersection Observer for scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.feature-card, .tech-badge, .quickstart-box').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

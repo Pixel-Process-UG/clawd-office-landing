@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-brand-black: #0A0A0A;
+  --color-brand-white: #FAFAFA;
+  --color-brand-yellow: #EAD391;
+  --color-brand-purple: #D6B6E1;
+  --color-brand-teal: #0099A1;
+  --color-brand-gray: #666666;
+  --color-brand-dark: #1a1a1a;
+
+  --font-heading: var(--font-montserrat);
+  --font-body: var(--font-roboto);
+}
+
+/* Neo-Brutalism Utilities */
+@layer utilities {
+  .shadow-neo {
+    box-shadow: 4px 4px 0px var(--color-brand-black);
+  }
+  .shadow-neo-sm {
+    box-shadow: 2px 2px 0px var(--color-brand-black);
+  }
+  .shadow-neo-lg {
+    box-shadow: 6px 6px 0px var(--color-brand-black);
+  }
+  .shadow-neo-hover:hover {
+    transform: translate(4px, 4px);
+    box-shadow: none;
+  }
+  .shadow-neo-sm-hover:hover {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  .border-neo {
+    border: 3px solid var(--color-brand-black);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  color: var(--color-brand-black);
+  background: var(--color-brand-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Pixel grid background pattern */
+.pixel-grid {
+  background-image:
+    linear-gradient(rgba(10,10,10,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-blink {
+  animation: blink 1.5s infinite;
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+.animate-float-delay-1 {
+  animation: float 2s ease-in-out infinite 0.5s;
+}
+
+.animate-float-delay-2 {
+  animation: float 2s ease-in-out infinite 1s;
+}
+
+/* Pixel checkerboard floor */
+.pixel-floor {
+  background: repeating-conic-gradient(#2a2a4a 0% 25%, #1e1e3a 0% 50%) 0 0 / 32px 32px;
+}
