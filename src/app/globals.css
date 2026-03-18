@@ -8,6 +8,14 @@
   --color-brand-teal: #0099A1;
   --color-brand-gray: #666666;
   --color-brand-dark: #1a1a1a;
+  --color-brand-card-dark: #111111;
+
+  --color-presence-active: #78f7b5;
+  --color-presence-available: #95d8ff;
+  --color-presence-meeting: #c39bff;
+  --color-presence-paused: #ffd479;
+  --color-presence-blocked: #ff8b8b;
+  --color-presence-off: #8792a8;
 
   --font-heading: var(--font-montserrat);
   --font-body: var(--font-roboto);
