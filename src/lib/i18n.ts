@@ -24,7 +24,7 @@ export const translations = {
     ctaSecondary: { de: "⭐ GitHub", en: "⭐ GitHub" },
     trustStates: { de: "✓ 6 Präsenz-Status", en: "✓ 6 presence states" },
     trustRooms: { de: "✓ 5 Räume", en: "✓ 5 themed rooms" },
-    trustQueue: { de: "✓ Task-Queue", en: "✓ Task queue" },
+    trustQueue: { de: "✓ Task-Queue & Runtime", en: "✓ Task queue & runtime" },
   },
   about: {
     label: { de: "Was ist das?", en: "What is this?" },
@@ -164,12 +164,28 @@ export const translations = {
         color: "teal" as const,
       },
       {
-        title: { de: "Dual Backend", en: "Dual Backend" },
+        title: { de: "Flexible Datenbank", en: "Flexible Database" },
         desc: {
-          de: "Postgres als Primär-DB mit automatischem JSON-Fallback. Null Konfiguration zum Start.",
-          en: "Postgres primary with automatic JSON file fallback. Zero-config to get started.",
+          de: "SQLite für den schnellen Start, PostgreSQL für Produktion — mit automatischem JSON-Fallback. Drizzle ORM unter der Haube.",
+          en: "SQLite for quick start, PostgreSQL for production — with automatic JSON fallback. Drizzle ORM under the hood.",
         },
         color: "purple" as const,
+      },
+      {
+        title: { de: "Webhooks & Integrationen", en: "Webhooks & Integrations" },
+        desc: {
+          de: "Telegram-Bot, GitHub, Linear und Slack — Webhooks für Events und bidirektionale Integrationen.",
+          en: "Telegram bot, GitHub, Linear, and Slack — webhooks for events and bidirectional integrations.",
+        },
+        color: "yellow" as const,
+      },
+      {
+        title: { de: "Agent-Runtime", en: "Agent Runtime" },
+        desc: {
+          de: "Claude Code als eingebaute Runtime — Tasks werden direkt an AI-Agents dispatcht. Echtzeit-Streaming der Ergebnisse.",
+          en: "Built-in Claude Code runtime — tasks dispatch directly to AI agents. Real-time streaming of results.",
+        },
+        color: "teal" as const,
       },
       {
         title: {
@@ -180,7 +196,7 @@ export const translations = {
           de: "Keyboard-Navigation, Screen-Reader-Support, Fokus-Indikatoren, Reduced-Motion.",
           en: "Keyboard nav, screen reader support, focus indicators, reduced motion respect.",
         },
-        color: "yellow" as const,
+        color: "purple" as const,
       },
     ],
   },

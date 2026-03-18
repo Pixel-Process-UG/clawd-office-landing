@@ -5,10 +5,11 @@ import { translations } from "@/lib/i18n";
 
 const techs = [
   { name: "React 18", color: "#61dafb" },
-  { name: "TypeScript 5.6", color: "#3178c6" },
+  { name: "TypeScript 5", color: "#3178c6" },
   { name: "Vite 5", color: "#646cff" },
+  { name: "Drizzle ORM", color: "#c5f74f" },
+  { name: "SQLite / PostgreSQL", color: "#336791" },
   { name: "Node.js", color: "#68a063" },
-  { name: "PostgreSQL", color: "#336791" },
 ];
 
 export default function TechStack() {
