@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Roboto } from "next/font/google";
 import RootClientWrapper from "@/components/RootClientWrapper";
 import "./globals.css";
 
@@ -8,18 +7,6 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 5,
 };
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700"],
-});
 
 export const metadata: Metadata = {
   title: "Agent Office - Pixel-Art Virtual Office for AI Agent Teams",
@@ -43,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" suppressHydrationWarning>
-      <body
-        className={`${montserrat.variable} ${roboto.variable} antialiased`}
-      >
+      <body className="antialiased">
         <RootClientWrapper>{children}</RootClientWrapper>
       </body>
     </html>

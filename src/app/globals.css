@@ -1,6 +1,9 @@
+@import url("https://fonts.bunny.net/css?family=montserrat:400,500,600,700,800|roboto:300,400,500,700");
 @import "tailwindcss";
 
 @theme inline {
+  --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
   --color-brand-black: #0A0A0A;
   --color-brand-white: #FAFAFA;
   --color-brand-yellow: #EAD391;
